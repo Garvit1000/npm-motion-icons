@@ -1,0 +1,4 @@
+/* Import all animation styles */
+@import './entrance-animations.css';
+@import '../animations/animations.css';
+@import './motion-preferences.css';

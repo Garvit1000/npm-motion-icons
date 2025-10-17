@@ -1,0 +1,10 @@
+src/
+dist/
+node_modules/
+*.ts
+!*.d.ts
+.git
+.gitignore
+vite.config.ts
+tsconfig.json
+*.map

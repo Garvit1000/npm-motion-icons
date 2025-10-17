@@ -1,0 +1,24 @@
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .motion-wiggle,
+  .motion-flip,
+  .motion-heartbeat,
+  .motion-shake,
+  .motion-swing,
+  .motion-tada,
+  .motion-ping,
+  .motion-rubber,
+  .motion-fade-in,
+  .motion-fade-in-up,
+  .motion-fade-in-down,
+  .motion-fade-in-left,
+  .motion-fade-in-right,
+  .motion-scale-in,
+  .motion-slide-in-up,
+  .motion-slide-in-down,
+  .motion-rotate-in,
+  .motion-zoom-in {
+    animation: none !important;
+    transition: none !important;
+  }
+}

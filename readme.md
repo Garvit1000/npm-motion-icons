@@ -152,6 +152,7 @@ function App() {
   animation="shake"
   trigger="click"
   className="text-blue-500 hover:text-blue-600"
+  interactive={true}
   size={24}
 />
 ```

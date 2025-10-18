@@ -139,8 +139,9 @@ const MotionIcon: React.FC<MotionIconProps> = ({
     }
   };
 
-  const handleFocus = () => {
-    if (trigger === 'focus') {
+  const handleFocus = (e: React.FocusEvent<HTMLSpanElement>) => {
+    // Only trigger animation on keyboard focus, not mouse click
+    if (trigger === 'focus' && (e.target as HTMLElement).matches(':focus-visible')) {
       setIsAnimating(true);
     }
   };
@@ -178,15 +179,15 @@ const MotionIcon: React.FC<MotionIconProps> = ({
         animationDelay: `${animationDelay}ms`,
         color
       }}
-      onClick={interactive ? handleClick : undefined}
+      onClick={interactive || trigger === 'click' ? handleClick : undefined}
       onMouseEnter={interactive || trigger === 'hover' ? handleMouseEnter : undefined}
       onMouseLeave={interactive || trigger === 'hover' ? handleMouseLeave : undefined}
-      onFocus={interactive || trigger === 'focus' ? handleFocus : undefined}
-      onBlur={interactive || trigger === 'focus' ? handleBlur : undefined}
+      onFocus={trigger === 'focus' ? handleFocus : undefined}
+      onBlur={trigger === 'focus' ? handleBlur : undefined}
       onAnimationEnd={handleAnimationEnd}
       role={interactive ? 'button' : 'img'}
       aria-label={ariaLabel || name}
-      tabIndex={interactive ? 0 : undefined}
+      tabIndex={interactive || trigger === 'focus' ? 0 : undefined}
       {...props}
     >
       <IconComponent

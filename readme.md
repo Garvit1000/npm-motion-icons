@@ -9,7 +9,7 @@
 
 **The easiest way to add smooth animations to Lucide icons in React**
 
-[Demo](https://motion-icons.dev) • [Documentation](#documentation) • [Examples](#examples) • [Contributing](#contributing)
+[Demo](https://motionicons.dev) • [Documentation](#documentation) • [Examples](#examples) • [Contributing](#contributing)
 
 </div>
 
@@ -28,8 +28,20 @@
 
 ### Installation
 
+Choose your preferred package manager:
+
 ```bash
+# npm
 npm install @motion-icons/react lucide-react
+
+# pnpm
+pnpm add @motion-icons/react lucide-react
+
+# yarn
+yarn add @motion-icons/react lucide-react
+
+# bun
+bun add @motion-icons/react lucide-react
 ```
 
 ### Basic Usage
@@ -190,8 +202,14 @@ const MyIcon: React.FC<MotionIconProps> = (props) => {
 git clone https://github.com/Garvit1000/motion-icons.git
 cd motion-icons
 
-# Install dependencies
+# Install dependencies (choose one)
 npm install
+# or
+pnpm install
+# or
+yarn install
+# or
+bun install
 
 # Start development server
 npm run dev
@@ -200,7 +218,9 @@ npm run dev
 npm run build
 ```
 
-### Testing with npm link
+### Testing with Package Manager Links
+
+#### npm
 ```bash
 # In the package directory
 npm run build
@@ -208,6 +228,36 @@ npm link
 
 # In your test project
 npm link @motion-icons/react
+```
+
+#### pnpm
+```bash
+# In the package directory
+pnpm run build
+pnpm link --global
+
+# In your test project
+pnpm link --global @motion-icons/react
+```
+
+#### yarn
+```bash
+# In the package directory
+yarn build
+yarn link
+
+# In your test project
+yarn link @motion-icons/react
+```
+
+#### bun
+```bash
+# In the package directory
+bun run build
+bun link
+
+# In your test project
+bun link @motion-icons/react
 ```
 
 ## 🤝 Contributing

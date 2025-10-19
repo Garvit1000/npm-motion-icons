@@ -9,7 +9,7 @@
 
 **The easiest way to add smooth animations to Lucide icons in React**
 
-[Demo](https://motionicons.dev) • [Documentation](#documentation) • [Examples](#examples) • [Contributing](#contributing)
+[Demo](https://motionicons.dev) • [Documentation](https://none-9e5c6865.mintlify.app/) • [Examples](#examples) • [Contributing](#contributing)
 
 </div>
 

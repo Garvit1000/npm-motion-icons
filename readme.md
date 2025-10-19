@@ -3,13 +3,13 @@
 <div align="center">
 
 ![Motion Icons React](https://img.shields.io/badge/Motion%20Icons-React-blue?style=for-the-badge)
-[![npm version](https://img.shields.io/npm/v/@motion-icons/react?style=for-the-badge)](https://www.npmjs.com/package/@motion-icons/react)
+[![npm version](https://img.shields.io/npm/v/motion-icons-react?style=for-the-badge)](https://www.npmjs.com/package/motion-icons-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=for-the-badge)](https://www.typescriptlang.org/)
 
 **The easiest way to add smooth animations to Lucide icons in React**
 
-[Demo](https://motionicons.dev) • [Documentation](#documentation) • [Examples](#examples) • [Contributing](#contributing)
+[Demo](https://motionicons.dev) • [Documentation](https://none-9e5c6865.mintlify.app/) • [Examples](#examples) • [Contributing](#contributing)
 
 </div>
 
@@ -32,23 +32,23 @@ Choose your preferred package manager:
 
 ```bash
 # npm
-npm install @motion-icons/react lucide-react
+npm install motion-icons-react lucide-react
 
 # pnpm
-pnpm add @motion-icons/react lucide-react
+pnpm add motion-icons-react lucide-react
 
 # yarn
-yarn add @motion-icons/react lucide-react
+yarn add motion-icons-react lucide-react
 
 # bun
-bun add @motion-icons/react lucide-react
+bun add motion-icons-react lucide-react
 ```
 
 ### Basic Usage
 
 ```tsx
-import { MotionIcon } from '@motion-icons/react';
-import '@motion-icons/react/style.css';
+import { MotionIcon } from 'motion-icons-react';
+import 'motion-icons-react/style.css';
 
 function App() {
   return (
@@ -188,7 +188,7 @@ The library automatically respects the user's `prefers-reduced-motion` setting. 
 Full TypeScript support is included with proper type definitions:
 
 ```tsx
-import { MotionIcon, type MotionIconProps } from '@motion-icons/react';
+import { MotionIcon, type MotionIconProps } from 'motion-icons-react';
 
 const MyIcon: React.FC<MotionIconProps> = (props) => {
   return <MotionIcon {...props} />;
@@ -228,7 +228,7 @@ npm run build
 npm link
 
 # In your test project
-npm link @motion-icons/react
+npm link motion-icons-react
 ```
 
 #### pnpm
@@ -238,7 +238,7 @@ pnpm run build
 pnpm link --global
 
 # In your test project
-pnpm link --global @motion-icons/react
+pnpm link --global motion-icons-react
 ```
 
 #### yarn
@@ -248,7 +248,7 @@ yarn build
 yarn link
 
 # In your test project
-yarn link @motion-icons/react
+yarn link motion-icons-react
 ```
 
 #### bun
@@ -258,7 +258,7 @@ bun run build
 bun link
 
 # In your test project
-bun link @motion-icons/react
+bun link motion-icons-react
 ```
 
 ## 🤝 Contributing

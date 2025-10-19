@@ -1,13 +1,10 @@
 {
-  "name": "@garvit1000/motion-icons-react",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "version": "1.0.0",
+  "name": "motion-icons-react",
+  "version": "1.0.1",
   "description": "Animated React icons - The easiest way to add smooth animations to Lucide icons",
   "author": "Garvit1000",
   "license": "MIT",
-  "homepage": "https://motion-icons.dev",
+  "homepage": "https://motionicons.dev",
   "repository": {
     "type": "git",
     "url": "https://github.com/Garvit1000/motion-icons"

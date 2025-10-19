@@ -62,32 +62,6 @@ function App() {
 }
 ```
 
-### Next.js Usage
-
-The component works seamlessly with Next.js App Router:
-
-```tsx
-'use client';
-
-import { MotionIcon } from 'motion-icons-react';
-import 'motion-icons-react/style.css';
-
-export default function Page() {
-  return (
-    <div>
-      <MotionIcon
-        name="Heart"
-        animation="heartbeat"
-        size={32}
-        color="red"
-      />
-    </div>
-  );
-}
-```
-
-**Note:** The `'use client'` directive is only needed in your page/component file. The package already includes it internally.
-
 ## 📖 Documentation
 
 ### Props

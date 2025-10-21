@@ -32,16 +32,16 @@ Choose your preferred package manager:
 
 ```bash
 # npm
-npm install motion-icons-react lucide-react
+npm install motion-icons-react@latest lucide-react
 
 # pnpm
-pnpm add motion-icons-react lucide-react
+pnpm add motion-icons-react@latest lucide-react
 
 # yarn
-yarn add motion-icons-react lucide-react
+yarn add motion-icons-react@latest lucide-react
 
 # bun
-bun add motion-icons-react lucide-react
+bun add motion-icons-react@latest lucide-react
 ```
 
 ### Basic Usage
@@ -80,13 +80,17 @@ export default function Page() {
         animation="heartbeat"
         size={32}
         color="red"
+        trigger="always"
       />
     </div>
   );
 }
 ```
 
-**Note:** The `'use client'` directive is only needed in your page/component file. The package already includes it internally.
+**Notes:** 
+- The `'use client'` directive is required for the component to work
+- You can import the CSS in either your page file or root layout - both work fine
+- The package already includes `'use client'` internally, so you only need it in your own files
 
 ## 📖 Documentation
 
@@ -195,12 +199,28 @@ export default function Page() {
 
 ## 🎨 Advanced Usage
 
-### Updating to Latest Version
+### What's New in v1.0.3
 
-To get the latest features and fixes:
+**🐛 Critical Bug Fix:** Animations now work correctly in Next.js with Tailwind CSS!
+
+Previous versions had animations that appeared static in Next.js applications due to CSS conflicts with Tailwind utility classes. This has been completely resolved.
+
+**Changes:**
+- Fixed Tailwind CSS conflicts that prevented animations from working
+- Improved SSR hydration for Next.js compatibility
+- Enhanced animation visibility (more dramatic effects)
+- Better trigger handling for `trigger="always"`
+
+To update:
 
 ```bash
 npm install motion-icons-react@latest
+```
+
+If upgrading from v1.0.2, clear your Next.js cache:
+```bash
+rm -rf .next
+npm run dev
 ```
 
 ### Custom Animation Timing

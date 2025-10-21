@@ -78,7 +78,7 @@ const MotionIcon: React.FC<MotionIconProps> = ({
   onAnimationEnd,
   ...props
 }) => {
-  const [isAnimating, setIsAnimating] = useState(trigger === 'always');
+  const [isAnimating, setIsAnimating] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [hasEntered, setHasEntered] = useState(!entrance);
 
@@ -89,6 +89,13 @@ const MotionIcon: React.FC<MotionIconProps> = ({
     console.warn(`Icon "${name}" not found in lucide-react`);
     return null;
   }
+
+  // Handle client-side mounting for Next.js SSR
+  useEffect(() => {
+    if (trigger === 'always') {
+      setIsAnimating(true);
+    }
+  }, [trigger]);
 
   // Trigger entrance animation on mount
   useEffect(() => {
@@ -164,21 +171,24 @@ const MotionIcon: React.FC<MotionIconProps> = ({
   // Get animation classes
   const animationClass = animationClasses[animation] || '';
   const entranceClass = entrance && !hasEntered ? entranceAnimations[entrance] : '';
-  const shouldAnimate = isAnimating && animation !== 'none';
+  // For 'always' trigger, apply animation immediately without waiting for state
+  const shouldAnimate = (trigger === 'always' || isAnimating) && animation !== 'none';
 
   return (
     <span
       className={cn(
-        'inline-flex items-center justify-center',
-        interactive && 'cursor-pointer transition-transform duration-200',
         shouldAnimate && animationClass,
         entranceClass,
+        interactive && 'cursor-pointer',
         isHovered && interactive && 'scale-110',
         className
       )}
       style={{
-        animationDuration: `${animationDuration}ms`,
-        animationDelay: `${animationDelay}ms`,
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        ...(entrance && !hasEntered && { animationDuration: `${animationDuration}ms` }),
+        ...(animationDelay > 0 && { animationDelay: `${animationDelay}ms` }),
         color
       }}
       onClick={interactive || trigger === 'click' ? handleClick : undefined}

@@ -46,9 +46,9 @@
 
 @keyframes motion-heartbeat {
   0%, 100% { transform: scale(1); }
-  14% { transform: scale(1.2); }
+  14% { transform: scale(1.5); }
   28% { transform: scale(1); }
-  42% { transform: scale(1.2); }
+  42% { transform: scale(1.5); }
   56% { transform: scale(1); }
 }
 
@@ -95,8 +95,8 @@
 /* Custom animations */
 .motion-wiggle { animation: motion-wiggle 1s ease-in-out infinite; }
 .motion-flip { animation: motion-flip 2s ease-in-out infinite; }
-.motion-heartbeat { animation: motion-heartbeat 1.5s ease-in-out infinite; }
-.motion-shake { animation: motion-shake 0.5s ease-in-out; }
-.motion-swing { animation: motion-swing 1s ease-in-out; }
-.motion-tada { animation: motion-tada 1s ease-in-out; }
-.motion-rubber { animation: motion-rubber 1s ease-in-out; }
+.motion-heartbeat { animation: motion-heartbeat 1s ease-in-out infinite; }
+.motion-shake { animation: motion-shake 0.5s ease-in-out infinite; }
+.motion-swing { animation: motion-swing 1s ease-in-out infinite; }
+.motion-tada { animation: motion-tada 1s ease-in-out infinite; }
+.motion-rubber { animation: motion-rubber 1s ease-in-out infinite; }

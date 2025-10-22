@@ -2,47 +2,98 @@
 
 <div align="center">
 
-![Motion Icons React](https://img.shields.io/badge/Motion%20Icons-React-blue?style=for-the-badge)
-[![npm version](https://img.shields.io/npm/v/motion-icons-react?style=for-the-badge)](https://www.npmjs.com/package/motion-icons-react)
+![Motion Icons Banner](https://img.shields.io/badge/Motion%20Icons-React-blue?style=for-the-badge)
+[![npm version](https://img.shields.io/npm/v/motion-icons-react?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/motion-icons-react)
+[![downloads](https://img.shields.io/npm/dm/motion-icons-react?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/motion-icons-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=for-the-badge)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
-**The easiest way to add smooth animations to Lucide icons in React**
+**Beautiful icons. Built for motion.**
 
-[Demo](https://motionicons.dev) • [Documentation](https://none-9e5c6865.mintlify.app/) • [Examples](#examples) • [Contributing](#contributing)
+The easiest way to add smooth animations to your React icons.
+
+[Playground](https://motionicons.dev) • [Docs](https://none-9e5c6865.mintlify.app/) • [Examples](#examples)
 
 </div>
 
-## ✨ Features
+---
 
-- 🎯 **Easy to use** - Drop-in replacement for Lucide React icons
-- 🎨 **Rich animations** - 10+ built-in animations (spin, bounce, wiggle, etc.)
-- 🚀 **Entrance effects** - Eye-catching entrance animations
-- ♿ **Accessible** - Respects `prefers-reduced-motion`
-- 📱 **Responsive** - Works on all screen sizes
-- 🎛️ **Customizable** - Full control over timing, triggers, and styling
-- 📦 **Lightweight** - Minimal bundle size impact
-- 🔧 **TypeScript** - Full type safety included
+## Why Motion Icons?
 
-## 🚀 Quick Start
+Most icon libraries are static. Adding animations means writing CSS, learning Framer Motion, or copy-pasting code snippets.
+
+**Motion Icons makes it effortless:**
+
+```tsx
+import { MotionIcon } from 'motion-icons-react';
+
+// Before: Static icon
+<Heart size={32} />
+
+// After: Animated in one prop
+<MotionIcon name="Heart" animation="heartbeat" size={32} />
+```
+
+That's it. **No CSS. No animation libraries. Just one prop.**
+
+---
+
+## Features
+
+<table>
+<tr>
+<td width="50%">
+
+**Drop-in Simplicity**
+<br/>Works with all 1000+ Lucide icons
+
+**Rich Animations**
+<br/>20+ pre-built animations ready to use
+
+**Entrance Effects**
+<br/>Eye-catching load animations
+
+</td>
+<td width="50%">
+
+**Accessible**
+<br/>Respects `prefers-reduced-motion`
+
+**Lightweight**
+<br/>Zero dependencies beyond React & Lucide
+
+**TypeScript**
+<br/>Full type safety included
+
+</td>
+</tr>
+</table>
+
+---
+
+## Quick Start
 
 ### Installation
 
-Choose your preferred package manager:
+```bash
+npm install motion-icons-react lucide-react
+```
+
+<details>
+<summary>Other package managers</summary>
 
 ```bash
-# npm
-npm install motion-icons-react@latest lucide-react
-
 # pnpm
-pnpm add motion-icons-react@latest lucide-react
+pnpm add motion-icons-react lucide-react
 
 # yarn
-yarn add motion-icons-react@latest lucide-react
+yarn add motion-icons-react lucide-react
 
 # bun
-bun add motion-icons-react@latest lucide-react
+bun add motion-icons-react lucide-react
 ```
+
+</details>
 
 ### Basic Usage
 
@@ -52,19 +103,19 @@ import 'motion-icons-react/style.css';
 
 function App() {
   return (
-    <MotionIcon
-      name="Heart"
-      animation="heartbeat"
-      size={32}
-      color="red"
+    <MotionIcon 
+      name="Heart" 
+      animation="heartbeat" 
+      size={32} 
+      color="red" 
     />
   );
 }
 ```
 
-### Next.js Usage
+### Next.js Setup
 
-The component works seamlessly with Next.js App Router:
+Works seamlessly with Next.js 13+ App Router:
 
 ```tsx
 'use client';
@@ -73,211 +124,193 @@ import { MotionIcon } from 'motion-icons-react';
 import 'motion-icons-react/style.css';
 
 export default function Page() {
-  return (
-    <div>
-      <MotionIcon
-        name="Heart"
-        animation="heartbeat"
-        size={32}
-        color="red"
-        trigger="always"
-      />
-    </div>
-  );
+  return <MotionIcon name="Rocket" animation="bounce" />;
 }
 ```
 
-**Notes:** 
-- The `'use client'` directive is required for the component to work
-- You can import the CSS in either your page file or root layout - both work fine
-- The package already includes `'use client'` internally, so you only need it in your own files
+> **Note:** Add `'use client'` directive when using interactive features.
 
-## 📖 Documentation
+---
+
+## Examples
+
+### Loading Spinner
+```tsx
+<MotionIcon 
+  name="Loader2" 
+  animation="spin" 
+  size={24} 
+/>
+```
+
+### Hover Animation
+```tsx
+<MotionIcon 
+  name="Heart" 
+  animation="heartbeat" 
+  trigger="hover" 
+  interactive 
+/>
+```
+
+### Click to Animate
+```tsx
+<MotionIcon 
+  name="Star" 
+  animation="tada" 
+  trigger="click" 
+  onClick={() => console.log('Starred!')} 
+/>
+```
+
+### Entrance Effect
+```tsx
+<MotionIcon 
+  name="CheckCircle" 
+  entrance="zoomIn" 
+  className="text-green-500" 
+/>
+```
+
+### Custom Button
+```tsx
+<button className="flex items-center gap-2">
+  <MotionIcon 
+    name="Send" 
+    animation="wiggle" 
+    trigger="hover" 
+    size={20} 
+  />
+  Send Message
+</button>
+```
+
+[Try it yourself on the playground →](https://motionicons.dev)
+
+---
+
+## API Reference
 
 ### Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `name` | `string` | **required** | Lucide icon name (e.g., "Heart", "Star") |
+| `name` | `string` | **required** | Any Lucide icon name (e.g., "Heart", "Star") |
 | `size` | `number` | `24` | Icon size in pixels |
-| `color` | `string` | `"currentColor"` | Icon color (CSS color value) |
-| `weight` | `"light" \| "regular" \| "bold"` | `"regular"` | Icon stroke weight |
-| `animation` | `AnimationType` | `"none"` | Main animation type |
-| `entrance` | `EntranceAnimationType \| null` | `null` | Entrance animation |
-| `trigger` | `"always" \| "hover" \| "click" \| "focus"` | `"always"` | Animation trigger |
-| `interactive` | `boolean` | `false` | Enable hover effects and focus states |
-| `animationDuration` | `number` | `1000` | Animation duration in milliseconds |
-| `animationDelay` | `number` | `0` | Animation delay in milliseconds |
-| `className` | `string` | `""` | Additional CSS classes |
-| `onClick` | `function` | - | Click event handler |
-| `onMouseEnter` | `function` | - | Mouse enter event handler |
-| `onMouseLeave` | `function` | - | Mouse leave event handler |
+| `color` | `string` | `"currentColor"` | Icon color (CSS color or Tailwind class) |
+| `animation` | `AnimationType` | `"none"` | Main animation (see below) |
+| `entrance` | `EntranceType` | `null` | Entrance animation (plays once on mount) |
+| `trigger` | `TriggerType` | `"always"` | When to animate: `always`, `hover`, `click`, `focus` |
+| `interactive` | `boolean` | `false` | Enable hover scale effect |
+| `animationDuration` | `number` | `1000` | Duration in milliseconds |
+| `animationDelay` | `number` | `0` | Delay before animation starts |
+| `className` | `string` | `""` | Additional CSS classes (Tailwind supported) |
 
 ### Animation Types
 
-#### Main Animations
-- `pulse` - Gentle pulsing effect
-- `spin` - Continuous rotation
-- `bounce` - Bouncing motion
-- `ping` - Radar-like ping effect
-- `wiggle` - Side-to-side wiggle
-- `flip` - 3D flip animation
-- `heartbeat` - Heart-like beating
-- `shake` - Shake effect
-- `swing` - Pendulum swing
-- `tada` - Celebration animation
-- `rubber` - Rubber band effect
+**Continuous Animations** (loop forever)
+- `pulse` - Gentle opacity pulse
+- `spin` - Smooth rotation
+- `bounce` - Vertical bounce
+- `ping` - Radar ping effect
+- `wiggle` - Horizontal shake
+- `flip` - 3D flip
+- `heartbeat` - Double pulse like a heart
+- `shake` - Intense shake
+- `swing` - Pendulum motion
+- `tada` - Celebration effect
+- `rubber` - Rubber band stretch
 
-#### Entrance Animations
-- `fadeIn` - Fade in from transparent
-- `fadeInUp` - Fade in from bottom
-- `fadeInDown` - Fade in from top
-- `fadeInLeft` - Fade in from left
-- `fadeInRight` - Fade in from right
-- `scaleIn` - Scale up from center
-- `slideInUp` - Slide in from bottom
-- `slideInDown` - Slide in from top
-- `rotateIn` - Rotate while fading in
-- `zoomIn` - Zoom in with scale
+**Entrance Animations** (play once)
+- `fadeIn`, `fadeInUp`, `fadeInDown`, `fadeInLeft`, `fadeInRight`
+- `scaleIn`, `slideInUp`, `slideInDown`
+- `rotateIn`, `zoomIn`
 
-## 🎯 Examples
+---
 
-### Basic Animation
+## Common Use Cases
+
+### Notification Badge
 ```tsx
-<MotionIcon
-  name="Star"
-  animation="spin"
-  size={32}
-  color="#FFD700"
-/>
+<div className="relative">
+  <MotionIcon name="Bell" size={24} />
+  <MotionIcon 
+    name="Circle" 
+    animation="ping" 
+    size={8}
+    color="red"
+    className="absolute -top-1 -right-1"
+  />
+</div>
 ```
 
-### Entrance Animation
+### Success Message
 ```tsx
-<MotionIcon
-  name="Rocket"
-  entrance="zoomIn"
-  animation="bounce"
-  animationDuration={800}
-  size={48}
-/>
+<div className="flex items-center gap-2">
+  <MotionIcon 
+    name="CheckCircle" 
+    entrance="zoomIn"
+    size={24}
+    color="green"
+  />
+  <span>Success!</span>
+</div>
 ```
 
-### Interactive Icon
+### Interactive Like Button
 ```tsx
-<MotionIcon
-  name="Heart"
-  animation="heartbeat"
-  trigger="hover"
-  interactive
-  size={32}
-  onClick={() => console.log('Liked!')}
-/>
+const [liked, setLiked] = useState(false);
+
+<button onClick={() => setLiked(!liked)}>
+  <MotionIcon 
+    name="Heart"
+    animation={liked ? "heartbeat" : "none"}
+    color={liked ? "red" : "gray"}
+    trigger="click"
+  />
+</button>
 ```
 
-### Custom Styling
-```tsx
-<MotionIcon
-  name="Bell"
-  animation="shake"
-  trigger="click"
-  className="text-blue-500 hover:text-blue-600"
-  interactive={true}
-  size={24}
-/>
-```
+---
 
-### Loading Spinner
-```tsx
-<MotionIcon
-  name="Loader2"
-  animation="spin"
-  size={20}
-  className="text-gray-500"
-/>
-```
+## What's New in v1.0.4
 
-## 🎨 Advanced Usage
+✅ **Fixed:** Animations now work in Next.js with Tailwind CSS
+✅ **Improved:** Better SSR hydration
+✅ **Enhanced:** More dramatic animation effects
+✅ **Better:** Trigger handling for smoother interactions
 
-### What's New in v1.0.3
-
-**🐛 Critical Bug Fix:** Animations now work correctly in Next.js with Tailwind CSS!
-
-Previous versions had animations that appeared static in Next.js applications due to CSS conflicts with Tailwind utility classes. This has been completely resolved.
-
-**Changes:**
-- Fixed Tailwind CSS conflicts that prevented animations from working
-- Improved SSR hydration for Next.js compatibility
-- Enhanced animation visibility (more dramatic effects)
-- Better trigger handling for `trigger="always"`
-
-To update:
-
+**Upgrading from v1.0.2 or earlier?**
 ```bash
 npm install motion-icons-react@latest
-```
-
-If upgrading from v1.0.2, clear your Next.js cache:
-```bash
-rm -rf .next
+rm -rf .next  # Clear Next.js cache
 npm run dev
 ```
 
-### Custom Animation Timing
-```tsx
-<MotionIcon
-  name="Zap"
-  entrance="fadeInUp"
-  animation="pulse"
-  animationDuration={500}
-  animationDelay={200}
-  trigger="hover"
-/>
-```
+---
 
-### Accessibility Considerations
-The library automatically respects the user's `prefers-reduced-motion` setting. All animations are disabled when users have motion reduction enabled in their system preferences.
+## Accessibility
 
-### TypeScript Support
-Full TypeScript support is included with proper type definitions:
+Motion Icons automatically respects user preferences:
 
-```tsx
-import { MotionIcon, type MotionIconProps } from 'motion-icons-react';
+- **`prefers-reduced-motion`** - Animations are disabled if the user has motion reduction enabled
+- **Semantic HTML** - Proper ARIA attributes
+- **Keyboard support** - Focus states work with `trigger="focus"`
 
-const MyIcon: React.FC<MotionIconProps> = (props) => {
-  return <MotionIcon {...props} />;
-};
-```
+---
 
-## 🛠️ Development
+## Development
 
-### Local Development
+### Local Setup
 ```bash
-# Clone the repository
 git clone https://github.com/Garvit1000/motion-icons.git
 cd motion-icons
-
-# Install dependencies (choose one)
 npm install
-# or
-pnpm install
-# or
-yarn install
-# or
-bun install
-
-# Start development server
 npm run dev
-
-# Build the package
-npm run build
 ```
 
-### Testing with Package Manager Links
-
-#### npm
+### Testing Locally
 ```bash
-# In the package directory
 npm run build
 npm link
 
@@ -285,68 +318,116 @@ npm link
 npm link motion-icons-react
 ```
 
-#### pnpm
-```bash
-# In the package directory
-pnpm run build
-pnpm link --global
+---
 
-# In your test project
-pnpm link --global motion-icons-react
-```
+## Contributing
 
-#### yarn
-```bash
-# In the package directory
-yarn build
-yarn link
+We'd love your help! Here's how:
 
-# In your test project
-yarn link motion-icons-react
-```
-
-#### bun
-```bash
-# In the package directory
-bun run build
-bun link
-
-# In your test project
-bun link motion-icons-react
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+1. Fork the repo
+2. Create a branch (`git checkout -b feature/cool-animation`)
+3. Commit changes (`git commit -m 'Add cool animation'`)
+4. Push to branch (`git push origin feature/cool-animation`)
 5. Open a Pull Request
 
-## 📄 License
+**Ideas for contributions:**
+- New animation types
+- Performance improvements
+- Documentation improvements
+- Bug fixes
+- Example showcases
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## 🙏 Acknowledgments
+## FAQ
 
-- Built on top of [Lucide React](https://lucide.dev/) icons
-- Inspired by modern animation libraries
-- Thanks to all contributors and users
+<details>
+<summary><strong>Can I use this with other icon libraries?</strong></summary>
 
-## 📞 Support
+Currently, Motion Icons only supports Lucide icons. Support for other libraries may come in future versions.
 
-- 🐛 [Report Issues](https://github.com/Garvit1000/motion-icons/issues)
-- 💬 [Discussions](https://github.com/Garvit1000/motion-icons/discussions)
-- 📧 [Email Support](mailto:garvitjoshi543@gmail.com)
+</details>
+
+<details>
+<summary><strong>Does this work with Tailwind CSS?</strong></summary>
+
+Yes! You can pass Tailwind classes via the `className` prop:
+```tsx
+<MotionIcon name="Heart" className="text-red-500 hover:text-red-600" />
+```
+
+</details>
+
+<details>
+<summary><strong>What's the bundle size impact?</strong></summary>
+
+The package is tree-shakeable and adds minimal overhead (~5KB gzipped) beyond Lucide React.
+
+</details>
+
+<details>
+<summary><strong>Can I create custom animations?</strong></summary>
+
+Yes! Pass custom CSS classes via `className` and define your animations in CSS. Native support for custom animation objects is planned for v2.0.
+
+</details>
+
+<details>
+<summary><strong>Why are animations not working in Next.js?</strong></summary>
+
+Make sure you:
+1. Added `'use client'` to your component
+2. Imported the CSS: `import 'motion-icons-react/style.css'`
+3. Updated to v1.0.3+ for Tailwind compatibility
+
+</details>
+
+---
+
+## Roadmap
+
+- [ ] Custom animation builder
+- [ ] Animation presets (combine multiple animations)
+- [ ] Vue.js support
+- [ ] More entrance/exit animations
+- [ ] Animation timeline control
+- [ ] Framer Motion integration (optional)
+
+**Have a feature request?** [Open an issue](https://github.com/Garvit1000/motion-icons/issues) →
+
+---
+
+## Credits
+
+- Built with [Lucide React](https://lucide.dev/) - Beautiful open-source icons
+- Inspired by modern animation libraries like Framer Motion
+- Thanks to all [contributors](https://github.com/Garvit1000/motion-icons/graphs/contributors)
+
+---
+
+## License
+
+MIT © [Garvit1000](https://github.com/Garvit1000)
+
+Free to use in personal and commercial projects.
+
+---
+
+## Support
+
+- **Bug Reports:** [GitHub Issues](https://github.com/Garvit1000/motion-icons/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/Garvit1000/motion-icons/discussions)
+- **Email:** [garvitjoshi543@gmail.com](mailto:garvitjoshi543@gmail.com)
+- **Twitter:** Share your creations with #MotionIcons
 
 ---
 
 <div align="center">
 
-**Made with ❤️ by [Garvit1000](https://github.com/Garvit1000)**
+**Made with ❤️ by [Garvit](https://github.com/Garvit1000)**
 
-[⭐ Star this repo](https://github.com/Garvit1000/motion-icons) if you find it helpful!
+If Motion Icons saves you time, consider [starring the repo](https://github.com/Garvit1000/motion-icons)!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Garvit1000/motion-icons&type=Date)](https://star-history.com/#Garvit1000/motion-icons&Date)
 
 </div>

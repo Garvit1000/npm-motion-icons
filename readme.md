@@ -2,10 +2,11 @@
 
 <div align="center">
 
-![Motion Icons React](https://img.shields.io/badge/Motion%20Icons-React-blue?style=for-the-badge)
-[![npm version](https://img.shields.io/npm/v/motion-icons-react?style=for-the-badge)](https://www.npmjs.com/package/motion-icons-react)
+![Motion Icons Banner](https://img.shields.io/badge/Motion%20Icons-React-blue?style=for-the-badge)
+[![npm version](https://img.shields.io/npm/v/motion-icons-react?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/motion-icons-react)
+[![downloads](https://img.shields.io/npm/dm/motion-icons-react?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/motion-icons-react)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=for-the-badge)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 
 **Animations without animation complexity.**
 
@@ -56,6 +57,8 @@ One line. No wrappers. No complexity.
 ```bash
 npm install motion-icons-react lucide-react
 ```
+
+</details>
 
 ### Basic Usage
 
@@ -237,71 +240,37 @@ Previous versions had animations that appeared static in Next.js applications du
 
 To update:
 
+**Upgrading from v1.0.2 or earlier?**
 ```bash
 npm install motion-icons-react@latest
-```
-
-If upgrading from v1.0.2, clear your Next.js cache:
-```bash
-rm -rf .next
+rm -rf .next  # Clear Next.js cache
 npm run dev
 ```
 
-### Custom Animation Timing
-```tsx
-<MotionIcon
-  name="Zap"
-  entrance="fadeInUp"
-  animation="pulse"
-  animationDuration={500}
-  animationDelay={200}
-  trigger="hover"
-/>
-```
+---
 
-### Accessibility Considerations
-The library automatically respects the user's `prefers-reduced-motion` setting. All animations are disabled when users have motion reduction enabled in their system preferences.
+## Accessibility
 
-### TypeScript Support
-Full TypeScript support is included with proper type definitions:
+Motion Icons automatically respects user preferences:
 
-```tsx
-import { MotionIcon, type MotionIconProps } from 'motion-icons-react';
+- **`prefers-reduced-motion`** - Animations are disabled if the user has motion reduction enabled
+- **Semantic HTML** - Proper ARIA attributes
+- **Keyboard support** - Focus states work with `trigger="focus"`
 
-const MyIcon: React.FC<MotionIconProps> = (props) => {
-  return <MotionIcon {...props} />;
-};
-```
+---
 
 ## Development
 
-### Local Development
+### Local Setup
 ```bash
-# Clone the repository
 git clone https://github.com/Garvit1000/motion-icons.git
 cd motion-icons
-
-# Install dependencies (choose one)
 npm install
-# or
-pnpm install
-# or
-yarn install
-# or
-bun install
-
-# Start development server
 npm run dev
-
-# Build the package
-npm run build
 ```
 
-### Testing with Package Manager Links
-
-#### npm
+### Testing Locally
 ```bash
-# In the package directory
 npm run build
 npm link
 
@@ -309,21 +278,11 @@ npm link
 npm link motion-icons-react
 ```
 
-#### pnpm
-```bash
-# In the package directory
-pnpm run build
-pnpm link --global
+---
 
-# In your test project
-pnpm link --global motion-icons-react
-```
+## Contributing
 
-#### yarn
-```bash
-# In the package directory
-yarn build
-yarn link
+We'd love your help! Here's how:
 
 # In your test project
 yarn link motion-icons-react
@@ -351,13 +310,12 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
 ## Acknowledgments
 
-- Built on top of [Lucide React](https://lucide.dev/) icons
-- Inspired by modern animation libraries
-- Thanks to all contributors and users
+<details>
+<summary><strong>Can I use this with other icon libraries?</strong></summary>
 
 ## Support
 
@@ -369,8 +327,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by [Garvit1000](https://github.com/Garvit1000)**
+**Made with ❤️ by [Garvit](https://github.com/Garvit1000)**
 
-[⭐ Star this repo](https://github.com/Garvit1000/motion-icons) if you find it helpful!
+If Motion Icons saves you time, consider [starring the repo](https://github.com/Garvit1000/motion-icons)!
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Garvit1000/motion-icons&type=Date)](https://star-history.com/#Garvit1000/motion-icons&Date)
 
 </div>

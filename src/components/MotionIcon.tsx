@@ -177,18 +177,17 @@ const MotionIcon: React.FC<MotionIconProps> = ({
   return (
     <span
       className={cn(
+        'inline-flex items-center justify-center',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded',
+        interactive && 'cursor-pointer transition-transform duration-200',
         shouldAnimate && animationClass,
         entranceClass,
-        interactive && 'cursor-pointer',
-        isHovered && interactive && 'scale-110',
+        isHovered && interactive && !shouldAnimate && 'scale-110',
         className
       )}
       style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        ...(entrance && !hasEntered && { animationDuration: `${animationDuration}ms` }),
-        ...(animationDelay > 0 && { animationDelay: `${animationDelay}ms` }),
+        animationDuration: `${animationDuration}ms`,
+        animationDelay: `${animationDelay}ms`,
         color
       }}
       onClick={interactive || trigger === 'click' ? handleClick : undefined}

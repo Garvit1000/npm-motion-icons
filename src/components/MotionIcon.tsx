@@ -102,10 +102,10 @@ const MotionIcon: React.FC<MotionIconProps> = ({
     if (entrance) {
       const timer = setTimeout(() => {
         setHasEntered(true);
-      }, animationDelay);
+      }, animationDuration + animationDelay);
       return () => clearTimeout(timer);
     }
-  }, [entrance, animationDelay]);
+  }, [entrance, animationDuration, animationDelay]);
 
   // Determine stroke width based on weight
   const strokeWidth = useMemo(() => {
@@ -171,23 +171,23 @@ const MotionIcon: React.FC<MotionIconProps> = ({
   // Get animation classes
   const animationClass = animationClasses[animation] || '';
   const entranceClass = entrance && !hasEntered ? entranceAnimations[entrance] : '';
-  // For 'always' trigger, apply animation immediately without waiting for state
-  const shouldAnimate = (trigger === 'always' || isAnimating) && animation !== 'none';
 
   return (
     <span
       className={cn(
-        'inline-flex items-center justify-center',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded',
-        interactive && 'cursor-pointer transition-transform duration-200',
-        shouldAnimate && animationClass,
+        (trigger === 'always' || isAnimating) && animation !== 'none' && animationClass,
         entranceClass,
-        isHovered && interactive && !shouldAnimate && 'scale-110',
+        interactive && 'cursor-pointer',
+        isHovered && interactive && 'scale-110',
         className
       )}
       style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         animationDuration: `${animationDuration}ms`,
         animationDelay: `${animationDelay}ms`,
+        ...(entrance && !hasEntered && { opacity: 0 }),
         color
       }}
       onClick={interactive || trigger === 'click' ? handleClick : undefined}

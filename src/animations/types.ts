@@ -13,6 +13,11 @@ export type AnimationType =
   | 'swing'
   | 'tada'
   | 'rubber'
+  // Daily-use feedback
+  | 'press'
+  | 'nudge'
+  | 'success'
+  | 'pop'
   | 'none';
 
 // Entrance animation types

@@ -41,6 +41,12 @@ const animationClasses: Record<string, string> = {
   tada: 'motion-tada',
   rubber: 'motion-rubber',
 
+  // Daily-use feedback
+  press: 'motion-press',
+  nudge: 'motion-nudge',
+  success: 'motion-success',
+  pop: 'motion-pop',
+
   // None
   none: ''
 };
@@ -79,7 +85,6 @@ const MotionIcon: React.FC<MotionIconProps> = ({
   ...props
 }) => {
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const [hasEntered, setHasEntered] = useState(!entrance);
 
   // Get the icon component from lucide-react
@@ -122,18 +127,12 @@ const MotionIcon: React.FC<MotionIconProps> = ({
     if (trigger === 'hover') {
       setIsAnimating(true);
     }
-    if (interactive) {
-      setIsHovered(true);
-    }
     onMouseEnter?.(e);
   };
 
   const handleMouseLeave = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (trigger === 'hover') {
       setIsAnimating(false);
-    }
-    if (interactive) {
-      setIsHovered(false);
     }
     onMouseLeave?.(e);
   };
@@ -177,8 +176,7 @@ const MotionIcon: React.FC<MotionIconProps> = ({
       className={cn(
         (trigger === 'always' || isAnimating) && animation !== 'none' && animationClass,
         entranceClass,
-        interactive && 'cursor-pointer',
-        isHovered && interactive && 'scale-110',
+        interactive && 'motion-interactive',
         className
       )}
       style={{

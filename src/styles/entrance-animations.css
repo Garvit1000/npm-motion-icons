@@ -1,18 +1,22 @@
-/* Simple fade - no movement */
+/* Entrance animations.
+   Rules followed (Emil Kowalski / animations.dev):
+   - Never animate from scale(0) — start from scale(0.95) with opacity 0.
+   - Use custom easing curves; built-in CSS easings are too weak.
+   - ease-out for entrances (starts fast, feels responsive).
+   - Keep durations tight: icon entrances live in the 200-400ms band.
+*/
+
+/* Simple fade — opacity only, no movement */
 @keyframes motion-fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/* Fade with subtle upward float */
+/* Fade with subtle upward float. 12px instead of 30px — tighter feels intentional. */
 @keyframes motion-fade-in-up {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
@@ -24,7 +28,7 @@
 @keyframes motion-fade-in-down {
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-12px);
     }
     to {
         opacity: 1;
@@ -36,7 +40,7 @@
 @keyframes motion-fade-in-left {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-16px);
     }
     to {
         opacity: 1;
@@ -48,7 +52,7 @@
 @keyframes motion-fade-in-right {
     from {
         opacity: 0;
-        transform: translateX(50px);
+        transform: translateX(16px);
     }
     to {
         opacity: 1;
@@ -56,16 +60,10 @@
     }
 }
 
-/* Bounce scale effect */
+/* Scale in — starts from 0.95, never from 0. Subtle spring overshoot. */
 @keyframes motion-scale-in {
     0% {
         opacity: 0;
-        transform: scale(0.3);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    70% {
         transform: scale(0.95);
     }
     100% {
@@ -74,18 +72,11 @@
     }
 }
 
-/* Strong slide from bottom with overshoot */
+/* Slide from bottom — single overshoot kept subtle (4px, not 10px). */
 @keyframes motion-slide-in-up {
     0% {
         opacity: 0;
-        transform: translateY(100px);
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(-10px);
-    }
-    80% {
-        transform: translateY(5px);
+        transform: translateY(24px);
     }
     100% {
         opacity: 1;
@@ -93,18 +84,11 @@
     }
 }
 
-/* Strong slide from top with overshoot */
+/* Slide from top */
 @keyframes motion-slide-in-down {
     0% {
         opacity: 0;
-        transform: translateY(-100px);
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(10px);
-    }
-    80% {
-        transform: translateY(-5px);
+        transform: translateY(-24px);
     }
     100% {
         opacity: 1;
@@ -112,18 +96,11 @@
     }
 }
 
-/* Dramatic rotate with scale */
+/* Rotate in — starts from scale(0.9), not scale(0). Smaller rotation arc. */
 @keyframes motion-rotate-in {
     0% {
         opacity: 0;
-        transform: rotate(-360deg) scale(0);
-    }
-    50% {
-        opacity: 0.8;
-        transform: rotate(-180deg) scale(0.5);
-    }
-    80% {
-        transform: rotate(10deg) scale(1.1);
+        transform: rotate(-90deg) scale(0.9);
     }
     100% {
         opacity: 1;
@@ -131,21 +108,11 @@
     }
 }
 
-/* Explosive zoom with bounce */
+/* Zoom in — starts from scale(0.92), not scale(0). Subtle spring overshoot only. */
 @keyframes motion-zoom-in {
     0% {
         opacity: 0;
-        transform: scale(0);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-    65% {
-        transform: scale(0.9);
-    }
-    80% {
-        transform: scale(1.05);
+        transform: scale(0.92);
     }
     100% {
         opacity: 1;
@@ -155,41 +122,41 @@
 
 /* Entrance Animation Classes */
 .motion-fade-in {
-    animation: motion-fade-in 0.8s ease-out forwards;
+    animation: motion-fade-in 240ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-fade-in-up {
-    animation: motion-fade-in-up 0.8s ease-out forwards;
+    animation: motion-fade-in-up 280ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-fade-in-down {
-    animation: motion-fade-in-down 0.8s ease-out forwards;
+    animation: motion-fade-in-down 280ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-fade-in-left {
-    animation: motion-fade-in-left 0.8s ease-out forwards;
+    animation: motion-fade-in-left 280ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-fade-in-right {
-    animation: motion-fade-in-right 0.8s ease-out forwards;
+    animation: motion-fade-in-right 280ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-scale-in {
-    animation: motion-scale-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: motion-scale-in 260ms var(--motion-ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) forwards;
 }
 
 .motion-slide-in-up {
-    animation: motion-slide-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: motion-slide-in-up 320ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-slide-in-down {
-    animation: motion-slide-in-down 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: motion-slide-in-down 320ms var(--motion-ease-out, cubic-bezier(0.23, 1, 0.32, 1)) forwards;
 }
 
 .motion-rotate-in {
-    animation: motion-rotate-in 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: motion-rotate-in 320ms var(--motion-ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) forwards;
 }
 
 .motion-zoom-in {
-    animation: motion-zoom-in 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    animation: motion-zoom-in 240ms var(--motion-ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) forwards;
 }

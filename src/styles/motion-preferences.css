@@ -1,14 +1,35 @@
-/* Respect prefers-reduced-motion */
+/* Reduced motion — fewer and gentler animations, not zero.
+   Keep opacity transitions that aid comprehension. Remove movement, rotation,
+   scale, and looping motion that can cause vestibular discomfort. */
+
 @media (prefers-reduced-motion: reduce) {
+  /* Looping and movement-heavy animations: kill entirely. */
+  .motion-spin,
+  .motion-bounce,
+  .motion-ping,
   .motion-wiggle,
   .motion-flip,
   .motion-heartbeat,
   .motion-shake,
   .motion-swing,
   .motion-tada,
-  .motion-ping,
   .motion-rubber,
-  .motion-fade-in,
+  .motion-nudge {
+    animation: none !important;
+  }
+
+  /* Pulse is opacity-only — keep it, it aids comprehension (loading states). */
+
+  /* Press / success / pop feedback: replace with a minimal opacity blink
+     so the user still gets state-change feedback without scaling. */
+  .motion-press,
+  .motion-success,
+  .motion-pop {
+    animation: motion-fade-in 160ms ease forwards !important;
+  }
+
+  /* Entrance animations: collapse to a plain fade — preserves "something
+     appeared here" without translating or scaling. */
   .motion-fade-in-up,
   .motion-fade-in-down,
   .motion-fade-in-left,
@@ -18,7 +39,6 @@
   .motion-slide-in-down,
   .motion-rotate-in,
   .motion-zoom-in {
-    animation: none !important;
-    transition: none !important;
+    animation: motion-fade-in 200ms ease forwards !important;
   }
 }

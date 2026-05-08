@@ -48,3 +48,39 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Logs (catch-all)
+*.log
+logs/
+pids/
+*.pid
+*.pid.lock
+*.seed
+
+# Build / tooling caches
+.cache/
+.vite/
+.turbo/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+node_modules/.cache/
+
+# npm internals & pack output
+.npm/
+*.tgz
+
+# Vite local convention
+*.local
+
+# Editor extras
+.history/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+# Local agent / skill / assistant artefacts (not part of the package)
+.agents/
+.claude/
+CLAUDE.local.md
+skills-lock.json
